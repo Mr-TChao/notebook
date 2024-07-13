@@ -210,10 +210,6 @@ export default defineConfig({
     nav: [
       { text: '主页', link: '/' },
       { text: '笔记', link: '/笔记/' },
-      { text: '读书笔记', link: '/读书笔记/' },
-      { text: '日常记录', link: '/日常记录/' },
-      { text: '闪念笔记', link: '/闪念笔记/' },
-      { text: '学习笔记', link: '/学习笔记/' },
       { text: '最近更新', link: '/toc' },
     ],
     sidebar,
