@@ -18,7 +18,6 @@ export interface Creator {
 
 const getAvatarUrl = (name: string) => `https://github.com/${name}.png`
 
-/*  模板开发者
 export const creators: Creator[] = [
   
   {
@@ -52,6 +51,6 @@ export const creators: Creator[] = [
   return c as Creator
 })
 
-*/
+
 export const creatorNames = creators.map(c => c.name)
 export const creatorUsernames = creators.map(c => c.username || '')
