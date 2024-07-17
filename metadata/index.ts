@@ -1,6 +1,6 @@
 /** 文本 */
-export const siteName = 'Nólëbase'
-export const siteShortName = 'Nólëbase'
+export const siteName = '言覃的个人知识库'
+export const siteShortName = '言覃的个人知识库'
 export const siteDescription = '言覃的个人知识库，记录 & 分享个人碎片化、结构化、体系化的技术知识内容。'
 
 /** 文档所在目录 */
