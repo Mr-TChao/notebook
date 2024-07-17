@@ -69,7 +69,7 @@
 如果你掌握了命令行和 [Git](https://git-scm.com/) 的使用，可以通过下面的命令克隆项目仓库到名为 `nolebase` 的目录中：
 
 ```shell
-git clone https://github.com/nolebase/nolebase
+git clone https://github.com/Mr-TChao
 ```
 
 #### 使用的是 Windows 吗
@@ -78,7 +78,7 @@ git clone https://github.com/nolebase/nolebase
 > 如果你使用的是 [Git for Windows](https://gitforwindows.org/) ，那么可能会在执行上述命令时，遇到类似这样的报错：
 >
 > ```PowerShell
-> PS D:\> git clone https://github.com/nolebase/nolebase
+> PS D:\> git clone https://github.com/Mr-TChao
 > ...
 > error: invalid path 'x: xxx.md'
 > fatal: unable to checkout working tree

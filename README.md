@@ -2,7 +2,7 @@
 
 一个简约的博客/笔记网站模板，基于 markdown + obsidian + vitepress
 
-本仓库从[nolebase](https://github.com/nolebase/nolebase/) 精简而来，方便做 template，用于初始化仓库
+本仓库从[nolebase](https://github.com/Mr-TChao/) 精简而来，方便做 template，用于初始化仓库
 
 演示网站： https://nolebase-template.vercel.app
 
@@ -35,7 +35,7 @@ vercel 部署很简单, 在 vercel 中选择项目后, 修改构建的 output di
 <img width="204" alt="image" src="https://github.com/Jackiexiao/nolebase-template/assets/18050469/aa83c0f4-9ff6-4fc2-b5df-eb45f81f6773">
 
 ### 其他方式部署
-其他部署方式见[原仓库](https://github.com/nolebase/nolebase/)的说明
+其他部署方式见[原仓库](https://github.com/Mr-TChao/)的说明
 
 ## Obsidian 的设置
 ### 关于图片链接问题
