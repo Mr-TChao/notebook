@@ -19,6 +19,9 @@ hero:
     - theme: alt
       text: GitHub 上浏览
       link: https://github.com/Mr-TChao
+    - theme: alt
+      text: 个人导航站
+      link: https://github.com/Mr-TChao
 
 features:
   - title: 多样的主题和内容
