@@ -19,7 +19,7 @@ hero:
     - theme: alt
       text: GitHub 上浏览
       link: https://github.com/Mr-TChao
-    - theme: alt
+    - theme: brand
       text: 个人导航站
       link: https://github.com/Mr-TChao
 
