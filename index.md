@@ -35,7 +35,7 @@ features:
     icon: 🗃
   - title: 由 Obsidian 驱动
     details: 工欲善其事, 必先利其器
-    icon: 🗃
+    icon: 🧰
 ---
 
 <HomePage />
