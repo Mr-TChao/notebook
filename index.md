@@ -19,9 +19,6 @@ hero:
     - theme: alt
       text: GitHub 上浏览
       link: https://github.com/Mr-TChao
-      
-      text: 常用导航
-      link: https://github.com/Mr-TChao
 
 features:
   - title: 多样的主题和内容
@@ -38,7 +35,7 @@ features:
     icon: 🗃
   - title: 由 Obsidian 驱动
     details: 工欲善其事, 必先利其器
-    icon: 🧰
+    icon: 🗃
 ---
 
 <HomePage />
