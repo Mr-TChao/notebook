@@ -26,7 +26,7 @@ hero:
 features:
   - title: 数据分析
     details: 本知识库和所生成的页面均由创作者们维护，涉及到生活中各方面知识和内容，也不乏我们的回忆和畅想。
-    icon: 🖩
+    icon: 🖧
   - title: 电商运营
     details: 拼多多 视频号 抖音
     icon: ⛟
