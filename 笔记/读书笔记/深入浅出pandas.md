@@ -774,3 +774,204 @@ pd.read_sql_query('SELECT * FROM data', engine)
 ```
 
 ## 3.2 读取CSV
+```python
+# 支持文件路径或者文件缓冲对象 
+# 本地相对路径 
+pd.read_csv('data/data.csv') # 注意目录层级 
+pd.read_csv('data.csv') # 如果文件与代码文件在同一目录下 
+pd.read_csv('data/my/my.data') # CSV文件的扩展名不一定是.csv 
+
+# 本地绝对路径 
+pd.read_csv('/user/gairuo/data/data.csv') 
+
+# 使用URL 
+pd.read_csv('https://www.gairuo.com/file/data/dataset/GDP-China.csv')
+```
+
+### 3.2.3 分隔符
+```python
+# 数据分隔符默认是逗号，可以指定为其他符号 
+pd.read_csv(data, sep='\t') # 制表符分隔tab 
+pd.read_table(data) # read_table 默认是制表符分隔tab 
+pd.read_csv(data, sep='|') # 制表符分隔tab 
+pd.read_csv(data,sep="(?<!a)\|(?!1)", engine='python') # 使用正则表达式
+```
+
+### 3.2.4 表头
+```python
+
+pd.read_csv(data, header=0) # 第一行 
+pd.read_csv(data, header=None) # 没有表头 
+pd.read_csv(data, header=[0,1,3]) # 多层索引MultiIndex
+```
+
+### 3.2.5 指定列索引
+```python
+pd.read_csv(data, names=['列1', '列2']) # 指定列名列表 
+pd.read_csv(data, names=['列1', '列2'], header=None)
+```
+
+### 3.2.6 指定了行索引
+```python
+# 支持int、str、int序列、str序列、False，默认为None 
+pd.read_csv(data, index_col=False) # 不再使用首列作为索引 
+pd.read_csv(data, index_col=0) # 第几列是索引 
+pd.read_csv(data, index_col='年份') # 指定列名 
+pd.read_csv(data, index_col=['a','b']) # 多个索引 
+pd.read_csv(data, index_col=[0, 3]) # 按列索引指定多个索引
+```
+
+### 3.2.7 使用部分列
+```python
+# 支持类似列表的序列和可调用对象 
+# 读取部分列 
+pd.read_csv(data, usecols=[0,4,3]) # 按索引只读取指定列，与顺序无关 
+pd.read_csv(data, usecols=['列1', '列5']) # 按列名，列名必须存在 
+
+# 指定列顺序，其实是df的筛选功能 
+pd.read_csv(data, usecols=['列1', '列5'])[['列5', '列1']] 
+
+# 以下用callable方式可以巧妙指定顺序，in后面的是我们要的顺序 
+pd.read_csv(data, usecols=lambda x: x.upper() in ['COL3', 'COL1'])
+```
+
+### 3.2.16 读取指定行
+```python
+# int类型，默认为None 
+pd.read_csv(data, nrows=1000)
+```
+
+## 3.3 读取excel
+```python
+# 字符串、整型、列表、None，默认为0 
+# 第二个sheet 
+pd.read_excel('tmp.xlsx', sheet_name=1) 
+
+# 按sheet的名字
+pd.read_excel('tmp.xlsx', sheet_name='总结表') 
+
+# 读取第一个、第二个、名为Sheet5的sheet，返回一个df组成的字典 
+dfs = pd.read_excel('tmp.xlsx', sheet_name=[0, 1, "Sheet5"]) 
+dfs = pd.read_excel('tmp.xlsx', sheet_name=None) 
+
+# 所有sheet 
+dfs['Sheet5'] # 读取时按sheet名
+```
+### 3.3.4 表头
+```python
+# 整型、整型组成的列表，默认为 0 
+pd.read_excel('tmp.xlsx', header=None) # 不设表头 
+pd.read_excel('tmp.xlsx', header=2) # 第三行为表头 
+pd.read_excel('tmp.xlsx', header=[0, 1]) # 两层表头，多层索引
+```
+
+### 3.3.5 列名
+```python
+# 序列，默认为None 
+pd.read_excel('tmp.xlsx', names=['姓名', '年龄', '成绩']) 
+pd.read_excel('tmp.xlsx', names=c_list) # 传入列表变量 
+
+# 没有表头，需要设置为None 
+pd.read_excel('tmp.xlsx', header=None, names=None)
+```
+
+## 3.4 数据输出
+
+### 3.4.1 CSV
+```python
+df.to_csv('done.csv') 
+df.to_csv('data/done.csv') # 可以指定文件目录路径 
+df.to_csv('done.csv', index=False) # 不要索引
+```
+
+### 3.4.2 Excel
+```python
+# 导出，可以指定文件路径 
+df.to_excel('path_to_file.xlsx') 
+# 指定sheet名，不要索引 
+df.to_excel('path_to_file.xlsx', sheet_name='Sheet1', index=False) 
+# 指定索引名，不合并单元格 
+df.to_excel('path_to_file.xlsx', index_label='label', merge_cells=False)
+```
+
+多个数据的导出
+```python
+# 将多个df分不同sheet导入一个Excel文件中 
+with pd.ExcelWriter('path_to_file.xlsx') as writer: 
+	df1.to_excel(writer, sheet_name='Sheet1') 
+	df2.to_excel(writer, sheet_name='Sheet2')
+```
+
+### 3.4.4 数据库(SQL)
+```python
+# 需要安装SQLAlchemy库 
+from sqlalchemy import create_engine 
+# 创建数据库对象，SQLite内存模式 
+engine = create_engine('sqlite:///:memory:') 
+# 取出表名为data的表数据 
+with engine.connect() as conn, conn.begin(): 
+	data = pd.read_sql_table('data', conn) 
+
+# data # 将数据写入 
+data.to_sql('data', engine) 
+# 大量写入 
+data.to_sql('data_chunked', engine, chunksize=1000) 
+# 使用SQL查询 
+pd.read_sql_query('SELECT * FROM data', engine)
+```
+
+
+# 第四章 Pandas基础操作
+
+## 4.1 索引操作
+
+### 4.1.1 认识索引
+
+| DataFrame |      | series |      |
+| --------- | ---- | ------ | ---- |
+| 行索引1      | 行索引2 | 行索引3   | 行索引4 |
+| 列索引1      | data | date   | date |
+| 列索引2      | data | data   | date |
+| 列索引3      |      |        |      |
+|           |      |        |      |
+### 4.1.2 建立索引
+
+加载时指定索引
+```python
+data = 'https://www.gairuo.com/file/data/dataset/team.xlsx' 
+
+# 将索引设置为name
+df = pd.read_excel(data, index_col='name')  
+```
+
+加载后指定索引
+```python
+df = pd.read_excel(data) # 读取数据不设索引 
+df.set_index('name') # 设置索引
+
+
+设置多层索引
+df.set_index(['name', 'team']) # 设置两层索引 
+df.set_index([df.name.str[0],'name']) # 将姓名的第一个字母和姓名设置为索引
+```
+
+### 4.1.3 重置索引 
+```python
+df.reset_index() # 清除索引 
+df.set_index('month').reset_index() # 相当于什么也没做 
+# 删除原索引，month列没了 
+df.set_index('month').reset_index(drop=True) 
+df2.reset_index(inplace=True) # 覆盖使生效 
+# year一级索引取消 
+df.set_index(['month', 'year']).reset_index(level=1) 
+df2.reset_index(level='class') # 同上，使用层级索引名 
+df.reset_index(level='class', col_level=1) # 列索引 
+# 不存在层级名称的填入指定名称 
+df.reset_index(level='class', col_level=1, col_fill='species')
+```
+
+## 4.3 统计计算 
+
+### 4.3.1 描述统计
+
+
