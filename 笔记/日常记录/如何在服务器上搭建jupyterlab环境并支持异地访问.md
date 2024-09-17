@@ -6,7 +6,7 @@ pip install --upgrade jupyter jupyterlab
 ## 设置 jupyterlab 登录密码
 ```shell
 ipython3  
-frome jupyter_server.auth import passwd
+from jupyter_server.auth import passwd
 passwd()  
 
 # 输入密码后会得到一串哈希值,复制保留,稍等下有用. 
@@ -17,8 +17,10 @@ passwd()
 exit() 
 ```
 
-## 修改 jupyterlab 配置文件
+## 生成并修改 jupyterlab 配置文件
 ```shell
+jupyter notebook --generate-config
+
 vim /home/UserName/.jupyter/jupyter_lab_config.py
 ```
 
