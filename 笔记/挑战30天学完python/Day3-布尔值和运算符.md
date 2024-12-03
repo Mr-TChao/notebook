@@ -165,6 +165,6 @@ print(not True)      # False - 反转操作  不为 true 则 false
 print(not False)     # True
 print(not not True)  # True
 print(not not False) # False
-	```
+```
 
 --
