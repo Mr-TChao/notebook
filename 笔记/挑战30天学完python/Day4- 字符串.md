@@ -170,7 +170,7 @@ print(second_last) # o
 ```
 
 #### 字符串的切片
-在python中，我们可以将字符串切成子字符串。语法格式 `str[beginIndex:endIndex:step]`，并且取值结果为\[begin,end) 半开区间即含头不含尾。步长不设置情况下默认为1。
+在python中，我们可以将字符串切成子字符串。语法格式 `str[beginIndex:endIndex:step]`，并且取值结果为\[begin,end] 半开区间即含头不含尾。步长不设置情况下默认为1。
 ```python
 # 字符串的切片
 language = 'Python'
@@ -190,5 +190,198 @@ last_three = language[3:] # endIndex不设置默认到末尾
 print(last_three)   # hon
 ```
 
+#### 字符串方法 
+1.  **str.capitalize() 方法**  --将字符串的第一个字符转换为大写字母 . 
+```python
+challenge = 'thirty days of python'
+print(challenge.capitalize()) # 'Thirty days of python'
+```
+2. **str. count () 方法** --返回字符串中给定字符出现次数。语法 count(substring, start=.., end=..)。其中start为开始索引，end为结束索引。
+```python
+challenge = 'thirty days of python'
+print(challenge.count('y')) # 3
+print(challenge.count('y', 7, 14)) # 1, 只统计索引范围7-14（不含14）内y的个数
+print(challenge.count('th')) # 2
+```
+3. **str.endswith() 方法** --检查字符串是否以指定的结尾结束。
+```python
+challenge = 'thirty days of python'
+print(challenge.endswith('on'))   # True
+print(challenge.endswith('tion')) # False
+```
+4.  **str.expandtabs() 方法** --把字符串中的 tab 符号 \t 转为空格，tab 符号 \t 默认的空格数是 8。在第 0、8、16...等处给出制表符位置，如果当前位置到开始位置或上一个制表符位置的字符数不足 8 的倍数则以空格代替。
+```python
+challenge = 'thirty\tdays\tof\tpython'
+print(challenge.expandtabs())   # 'thirty  days    of      python'
+print(challenge.expandtabs(10)) # 'thirty    days      of        python'
+```
+5. **str.find()方法** --返回子字符串第一次出现的索引，如果没有找到则返回-1。
+```python
+challenge = 'thirty days of python'
+print(challenge.find('y'))   # 5，thirty单词中第一出现的 y
+print(challenge.find('th'))  # 0，thirty单词中第一出现的 th
+print(challenge.find('ths')) # -1，整个字符串中没有出现连续的 ths 返回-1 表示没有找到
+```
+6. **str.rfind()方法** --返回子字符串最后一次出现的索引，如果没有找到则返回-1。
+```python
+challenge = 'thirty days of python'
+print(challenge.rfind('y'))  # 16，pyhton单词中最后出现的 y
+print(challenge.rfind('th')) # 17，python单词中最后出现的 th
+print(challenge.find('ths')) # -1
+```
+7. **str.index()方法.**  --返回给定值第一个匹配项的索引位置，函数形式index(x[, start[, end]]) ，其中附加参数可指定开始（默认0）和结束（默认-1）位置。如果子字符串没有匹配则抛出了ValueError异常。 
+		区别说明：index()函数和find()函数功能类似。区别在于找不到的返回值不同，前者返回-1，后者异常ValueError: substring not found
+```python
 
-----------github, 更新测试
+- `rindex()`: 返回给定值最后一个匹配项的索引位置，同样有扩展参数来制定查找开始和结束位置。函数使用参考上述。
+```py
+challenge = 'thirty days of python'
+sub_string = 'da'
+print(challenge.rindex(sub_string))  # 7
+print(challenge.rindex(sub_string, 9)) # error
+```
+8.  **str.isalnum()方法** --检查字符串是否仅为字符数字组合.
+```python
+challenge = 'ThirtyDaysPython'
+print(challenge.isalnum()) # True
+
+challenge = '30DaysPython'
+print(challenge.isalnum()) # True
+
+challenge = 'thirty days of python'
+print(challenge.isalnum()) # False, 空格不属于alphanumeric（字母数字）的组合
+
+challenge = 'thirty days of python 2019'
+print(challenge.isalnum()) # False
+
+challenge = 'thirty@123'
+print(challenge.isalnum()) # False
+```
+9. **str.isalpha()方法** --检查是否所有字符串元素都是字母字符(a-z和a-z). 
+```python
+challenge = 'thirty days of python'
+print(challenge.isalpha()) # False, 空格也不属于字母字符范畴
+
+challenge = 'ThirtyDaysPython'
+print(challenge.isalpha()) # True
+
+num = '123'
+print(num.isalpha())      # False
+```
+10. **str.isdecimal()方法** --检查字符串中的所有字符是否都是十进制(0-9). 
+```python
+challenge = 'thirty days of python'
+print(challenge.isdecimal())  # False
+
+challenge = '123'
+print(challenge.isdecimal())  # True
+
+challenge = '\u00B2'
+print(challenge.isdecimal())   # False 
+
+challenge = '12 3'
+print(challenge.isdecimal())  # False 注意有空字符所以不符合数字检查
+```
+11. **str.isdigit()方法** --检查字符串中的所有字符是否都是数字(0-9和一些用于数字的其他unicode字符). 
+```python
+challenge = 'Thirty'
+print(challenge.isdigit()) # False
+
+challenge = '30'
+print(challenge.isdigit())   # True
+
+challenge = '\u00B2'
+print(challenge.isdigit())   # True 如果你使用 print('\u00B2') 打印会看到输出是2
+```
+12. **str.isnumeric() 方法** --检查字符串中的所有字符是否都是数字或与数字相关的（很像isdigit()，但接受更多的符号，比如½)
+```python
+num = '10'
+print(num.isnumeric()) # True
+
+num = '\u00BD' # print('\u00BD') = ½
+print(num.isnumeric()) # True
+
+num = '10.5'
+print(num.isnumeric()) # False
+```
+13. **str.isidentifier() 方法** --检查一个有效的标识符，即检查一个字符串是否是一个有效的变量名
+```python
+challenge = '30DaysOfPython'
+print(challenge.isidentifier()) # False, 因为是数字开头不是一个有效的变量名，具体可回顾Day2：变量和内置函数
+
+challenge = 'thirty_days_of_python'
+print(challenge.isidentifier()) # Truec
+```
+14. **str. islower () 方法** --检查字符串中的所有字母字符是否都是小写
+```python
+challenge = 'thirty days of python'
+print(challenge.islower()) # True
+
+challenge = 'Thirty days of python'
+print(challenge.islower()) # False
+
+challenge = '30天Python学习挑战'
+print(challenge.islower()) # False 中文不是英文字母
+```
+15. **str. isupper () 方法** --检查字符串中的所有字母字符是否都是大写
+```python
+challenge = 'thirty days of python'
+print(challenge.isupper()) #  False
+
+challenge = 'THIRTY DAYS OF PYTHON'
+print(challenge.isupper()) # True
+```
+16. **str.join () 方法** -- 返回一个连接后的字符串
+```python
+web_tech = ['HTML', 'CSS', 'JavaScript', 'React']
+
+result1 = ' '.join(web_tech)
+print(result1) # 'HTML CSS JavaScript React'
+
+result2 = '# '.join(web_tech)
+print(result2) # 'HTML# CSS# JavaScript# React
+```
+17. **str.strip () 方法** --剔除开头和结尾符合指定字符，并返回新的字符串
+```python
+challenge = 'thirty days of pythoonnn'
+print(challenge.strip('noth')) # 'irty days of py'
+```
+18. **str.replace () 方法** --字符串替换
+```python
+challenge = 'thirty days of python'
+print(challenge.replace('python', 'coding')) # 'thirty days of coding'
+```
+19. **str.split () 方法** --字符串拆分, 使用给定的字符串或空格（不指定时候默认）字符
+```python
+challenge = 'thirty days of python'
+print(challenge.split()) # ['thirty', 'days', 'of', 'python']
+
+challenge = 'thirty, days, of, python'
+# 注意对比下两个输出的区别
+print(challenge.split(', ')) # ['thirty', 'days', 'of', 'python']
+print(challenge.split(','))  # ['thirty', ' days', ' of', ' python']
+```
+20. **str.title () 方法** --字符串中所有单词首字母大写
+```python
+challenge = 'thirty days of python'
+print(challenge.title()) # Thirty Days Of Python
+```
+21. **str.swapcase () 方法** --将字符串中所有大写字符转小写，反之小写转大写
+```python
+challenge = 'thirty days of python'
+print(challenge.swapcase())   # THIRTY DAYS OF PYTHON
+
+challenge = 'Thirty Days Of Python'
+print(challenge.swapcase())  # tHIRTY dAYS oF pYTHON
+```
+22. **str.startswith () 方法** --检查某字符串是否已某个特殊字符串值开始
+```python
+challenge = 'thirty days of python'
+print(challenge.startswith('thirty')) # True
+
+challenge = '30 days of python'
+print(challenge.startswith('thirty')) # False
+
+challenge = '挑战30天学完python'
+print(challenge.startswith('挑战')) # True
+```
