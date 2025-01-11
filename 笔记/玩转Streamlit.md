@@ -12,7 +12,7 @@ streamlit hello
 ```python
 # 查看run命令的所有参数
 streamlit run --help
-
+	
 # 查看当前srreamlit的所有配置
 streamlit config show
 
