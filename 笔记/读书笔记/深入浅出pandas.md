@@ -343,7 +343,7 @@ complex  复数
 # 字符串字符反转
 字符串[::-1]
 ```
-![](assets-深入浅出pandas/python字符串常用操作.png)
+![](https://raw.githubusercontent.com/Mr-TChao/obsidian_pic/main/读书笔记/深入浅出pandas/python字符串常用操作.png)
 
 ### 2.2.3 布尔型
 布尔型只包含 False 和 True, 分别代表假 和 真. 
@@ -532,7 +532,7 @@ Series等同于Excel表格中的数据列, 是Pandas最基础的数据结构
 
 ### 2.4.2 DataFrame
 DateFrame等同于excel表格中的工作表. 
-![](assets-深入浅出pandas/DataFrame结构.png)
+![](https://raw.githubusercontent.com/Mr-TChao/obsidian_pic/main/读书笔记/深入浅出pandas/DataFrame结构.png)
 
 ### 2.4.3 索引
 索引 : index  指的是行和列上的标签, 标识二维数据坐标的行索引和列索引, 默认情况下, 指的是行索引. 
