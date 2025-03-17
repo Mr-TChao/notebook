@@ -36,7 +36,7 @@ print(len(systems)) # 3
 
 ### 元组取值
 类似list数据类型，获取元组的项同样通过索引index方式。
-![[day6-1.png]]
+![](https://raw.githubusercontent.com/Mr-TChao/obsidian_pic/main/30天学完python/day6-1.png)
 ##### 正向索引 ：
 下角[0]表示元组项1，以此类推到元组长度减1
 ```python
@@ -55,7 +55,7 @@ print(last_fruit) # lemon
 ```
 #### 负向索引 ：\
 负索引表示从末尾开始，-1表示最后一项，-2表示第二项，元组长度的负数表示第一项。
-![[day6-2.png]]
+![](https://raw.githubusercontent.com/Mr-TChao/obsidian_pic/main/30天学完python/day6-2.png)
 ```python
 # # 使用语法
 # tpl = ('item1', 'item2', 'item3','item4')

@@ -45,7 +45,7 @@ Number of web technologies: 7
 lst = ['生活', 18, True, {'country':'中国', 'city':'ShangHai'}]
 ```
 ### 索引访问列表项
-![[day5-1.png]]
+![](https://raw.githubusercontent.com/Mr-TChao/obsidian_pic/main/30天学完python/day5-1.png)
 访问列表中的项使用索引，下角标从0开始。
 ```python
 fruits = ['banana', 'orange', 'mango', 'lemon']
@@ -66,7 +66,7 @@ last_fruit = fruits[last_index]
 ```
 
 ### 负索引
-![[day5-2.png]]
+![](https://raw.githubusercontent.com/Mr-TChao/obsidian_pic/main/30天学完python/day5-2.png)
 负索引表示从末尾开始，-1表示最后一项，-2表示倒数第二项。
 ```python
 fruits = ['banana', 'orange', 'mango', 'lemon']

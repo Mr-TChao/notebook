@@ -150,7 +150,7 @@ print(f) # n
 
 #### 索引访问
 在程序中计数从零开始。因此字符串的第一个字母的下标为0，字符串的最后一个字母的长度是字符串的长度减1
-![](assets/day4-1.png)
+![](https://raw.githubusercontent.com/Mr-TChao/obsidian_pic/main/30天学完python/day4-1.png)
 ```python
 language = 'Python'
 first_letter = language[0]
