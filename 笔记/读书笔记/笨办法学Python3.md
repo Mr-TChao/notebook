@@ -96,7 +96,13 @@ file.seek(0)
 from os.path import exists
 ```
 
-## 返回字符串长度
+## 返回传递字符串长度
 ```python
 len()
+```
+
+## 创建函数
+```python
+def 函数名():
+	函数体
 ```
