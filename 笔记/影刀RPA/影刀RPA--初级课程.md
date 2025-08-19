@@ -177,11 +177,57 @@ if
 2. 包含判断: if 包含: 网页时是否包含某个元素
 3. 存在判断 : if 存在: 桌面上是否存在某个文件夹
 ### 9. 为什么要用循环
-### 10. 循环的构成
+重复的做某一件事 , 但每次操作的对象不一样
+![](https://raw.githubusercontent.com/Mr-TChao/obsidian_pic/main/运营笔记/影刀/循环.png)
+### 10. 循环的构成( 循环项 + 循环体)
+![](https://raw.githubusercontent.com/Mr-TChao/obsidian_pic/main/运营笔记/影刀/循环的构成.png)
 ### 11. ForEach列表循环
+![](https://raw.githubusercontent.com/Mr-TChao/obsidian_pic/main/运营笔记/影刀/ForEach列表循环.png)
+需要把 列表中每一个内容依次拿出来处理 的场景
+
 ### 12. 循环相似元素
+![](https://raw.githubusercontent.com/Mr-TChao/obsidian_pic/main/运营笔记/影刀/循环相似元素.png)![](https://raw.githubusercontent.com/Mr-TChao/obsidian_pic/main/运营笔记/影刀/循环相似元素2.png)
 ### 13. For 次数循环
+![](https://raw.githubusercontent.com/Mr-TChao/obsidian_pic/main/运营笔记/影刀/For次数循环.png)
 ### 14. 循环的嵌套
+![](https://raw.githubusercontent.com/Mr-TChao/obsidian_pic/main/运营笔记/影刀/循环的嵌套.png)
 ### 15. 循环的控制
-### 16. 循环小结
-### 17. 三大逻辑
+![](https://raw.githubusercontent.com/Mr-TChao/obsidian_pic/main/运营笔记/影刀/循环的判断.png)
+### 16. 流程控制的三大逻辑
+![](https://raw.githubusercontent.com/Mr-TChao/obsidian_pic/main/运营笔记/影刀/三大逻辑png.png)
+
+## 网页操作自动化
+##### 基本概念 - 三要素
+1. 网页对象
+	1. 打开网页
+	2. 获取已打开的网页元素
+2. 网页元素
+	1. 单个元素的捕获
+	2. 相似元素的捕获
+3. 操作类型
+	1. 点击 、悬浮、各种框、拖拽、获取文本、处理对话框
+	2. 非标准下拉框的处理
+##### 综合案例  -- 多页订单的自动处理
+1. 多重循环 + 判断 +网页基本操作的组合
+2. 核心
+	1. 流程图 -- 梳理清楚自己的业务逻辑
+	2. 熟悉流程控制的基本概念, 加以组合
+##### 找不到元素怎么办  -- 目标网页校验元素
+1. 可以校验到 -- 网页对象选错了 -- 选择正确的网页对象
+2. 不能校验到 -- 元素属性变化 -- 使用影刀元素修复功能
+### 1. 基本概念与操作
+标准下拉框判断 --- div源码为: select
+
+网页下载组件不提示保存位置 ----   浏览器设置--- 下载  ---询问保存位置
+
+注意操作对象 --- 元素
+
+### 2. 找不到元素的排查
+![](https://raw.githubusercontent.com/Mr-TChao/obsidian_pic/main/运营笔记/影刀/找不到元素的排查方式.png)
+
+## Excel操作自动化
+### 1. 数据的表达
+数据类型  数据类型的转换, 四则运算, 拼接等同于Python
+
+### 2. Excel的相关操作
+![](https://raw.githubusercontent.com/Mr-TChao/obsidian_pic/main/运营笔记/影刀/Excel相关操作.png)
